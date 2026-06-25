@@ -140,61 +140,6 @@
   .section-label {
     @apply inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-white/40;
   }
-
-  /* Hero entry — CSS-only entrance (no JS required for LCP paint) */
-  .hero-portrait {
-    position: relative;
-    animation: hero-rise 1s cubic-bezier(0.22, 1, 0.36, 1) both;
-  }
-
-  .hero-portrait-ring {
-    position: absolute;
-    inset: -3px;
-    border-radius: 9999px;
-    opacity: 0.8;
-    filter: blur(6px);
-    background: conic-gradient(
-      from 0deg,
-      var(--violet),
-      var(--cyan),
-      var(--magenta),
-      var(--violet)
-    );
-    animation: spin-slow 12s linear infinite;
-  }
-
-  .hero-portrait-glow {
-    position: absolute;
-    inset: -1.25rem;
-    border-radius: 9999px;
-    background: radial-gradient(
-      circle,
-      rgba(124, 92, 255, 0.45),
-      transparent 70%
-    );
-    animation: hero-pulse 4s ease-in-out infinite;
-  }
-
-  .hero-portrait-frame {
-    animation: hero-float 6s ease-in-out infinite;
-  }
-
-  .hero-entry-label {
-    animation: hero-fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both;
-  }
-
-  .hero-entry-title {
-    animation: hero-title-in 1s cubic-bezier(0.22, 1, 0.36, 1) 0.5s both;
-  }
-
-  .hero-entry-sub {
-    animation: hero-fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.75s both;
-  }
-
-  .section-stack > section {
-    content-visibility: auto;
-    contain-intrinsic-size: auto 720px;
-  }
 }
 
 @layer utilities {

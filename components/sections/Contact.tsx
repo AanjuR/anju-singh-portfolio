@@ -4,7 +4,7 @@ import Image from "next/image";
 import { socials } from "@/lib/data";
 import MagneticButton from "@/components/ui/MagneticButton";
 import Reveal from "@/components/ui/Reveal";
-import DeferredParticles from "@/components/ui/DeferredParticles";
+import Particles from "@/components/ui/Particles";
 
 function ArrowIcon() {
   return (
@@ -41,7 +41,7 @@ export default function Contact() {
             "radial-gradient(circle, rgba(124,92,255,0.6), rgba(61,224,224,0.2), transparent 70%)",
         }}
       />
-      <DeferredParticles density={28} />
+      <Particles density={28} />
 
       <div className="relative mx-auto max-w-4xl text-center">
         <Reveal>
@@ -60,8 +60,7 @@ export default function Contact() {
                 alt="Anju Singh"
                 width={96}
                 height={96}
-                loading="lazy"
-                sizes="96px"
+                priority
                 className="relative h-24 w-24 rounded-full border border-white/20 object-cover"
               />
               <span className="absolute bottom-1 right-1 h-4 w-4 rounded-full border-2 border-ink bg-emerald-400 shadow-[0_0_10px_#34d399]" />

@@ -41,34 +41,6 @@ const config: Config = {
           "0%, 100%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-16px)" },
         },
-        "hero-rise": {
-          from: { opacity: "0", transform: "scale(0.5) translateY(30px)" },
-          to: { opacity: "1", transform: "scale(1) translateY(0)" },
-        },
-        "hero-fade-up": {
-          from: { opacity: "0", transform: "translateY(16px)" },
-          to: { opacity: "1", transform: "translateY(0)" },
-        },
-        "hero-title-in": {
-          from: {
-            opacity: "0",
-            transform: "translateY(28px)",
-            filter: "blur(12px)",
-          },
-          to: {
-            opacity: "1",
-            transform: "translateY(0)",
-            filter: "blur(0)",
-          },
-        },
-        "hero-pulse": {
-          "0%, 100%": { transform: "scale(1)", opacity: "0.5" },
-          "50%": { transform: "scale(1.15)", opacity: "0.85" },
-        },
-        "hero-float": {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-10px)" },
-        },
         shimmer: {
           "100%": { transform: "translateX(100%)" },
         },
