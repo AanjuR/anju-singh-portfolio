@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { socials } from "@/lib/data";
 import MagneticButton from "@/components/ui/MagneticButton";
 import Reveal from "@/components/ui/Reveal";
@@ -42,7 +41,7 @@ export default function Contact() {
             "radial-gradient(circle, rgba(124,92,255,0.6), rgba(61,224,224,0.2), transparent 70%)",
         }}
       />
-      <Particles density={40} />
+      <Particles density={28} />
 
       <div className="relative mx-auto max-w-4xl text-center">
         <Reveal>

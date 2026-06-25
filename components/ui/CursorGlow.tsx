@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { m, useMotionValue, useSpring } from "framer-motion";
 
 export default function CursorGlow() {
   const x = useMotionValue(-100);
@@ -37,7 +37,7 @@ export default function CursorGlow() {
   return (
     <>
       {/* Big soft glow following the cursor */}
-      <motion.div
+      <m.div
         aria-hidden
         className="pointer-events-none fixed z-[70] hidden md:block"
         style={{
@@ -54,17 +54,17 @@ export default function CursorGlow() {
               "radial-gradient(circle, rgba(124,92,255,0.9), rgba(61,224,224,0.3), transparent 70%)",
           }}
         />
-      </motion.div>
+      </m.div>
 
       {/* Precise dot + ring */}
-      <motion.div
+      <m.div
         aria-hidden
         className="pointer-events-none fixed z-[71] hidden md:block"
         style={{ x, y, translateX: "-50%", translateY: "-50%" }}
       >
         <div className="h-1.5 w-1.5 rounded-full bg-white" />
-      </motion.div>
-      <motion.div
+      </m.div>
+      <m.div
         aria-hidden
         className="pointer-events-none fixed z-[71] hidden md:block"
         style={{
@@ -77,7 +77,7 @@ export default function CursorGlow() {
         transition={{ type: "spring", stiffness: 300, damping: 25 }}
       >
         <div className="h-9 w-9 rounded-full border border-white/40" />
-      </motion.div>
+      </m.div>
     </>
   );
 }

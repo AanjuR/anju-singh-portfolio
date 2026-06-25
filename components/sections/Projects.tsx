@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { m, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { projects, type Project } from "@/lib/data";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/ui/Reveal";
@@ -15,7 +15,7 @@ function ProjectIcon({ accent }: { accent: string }) {
         border: `1px solid ${accent}55`,
       }}
     >
-      <motion.span
+      <m.span
         className="absolute h-2.5 w-2.5 rounded-full"
         style={{ background: accent, boxShadow: `0 0 16px ${accent}` }}
         animate={{ scale: [1, 1.6, 1], opacity: [1, 0.4, 1] }}
@@ -74,7 +74,7 @@ function ProjectCard({ project }: { project: Project }) {
 
   return (
     <Reveal className={spanClass}>
-      <motion.div
+      <m.div
         ref={ref}
         onMouseMove={handleMove}
         onMouseLeave={reset}
@@ -85,7 +85,7 @@ function ProjectCard({ project }: { project: Project }) {
         className="gradient-border group relative h-full min-h-[260px] overflow-hidden rounded-3xl glass p-7 will-transform"
       >
         {/* cursor-tracking glow */}
-        <motion.div
+        <m.div
           aria-hidden
           className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
           style={{ background: glow }}
@@ -126,7 +126,7 @@ function ProjectCard({ project }: { project: Project }) {
             ))}
           </div>
         </div>
-      </motion.div>
+      </m.div>
     </Reveal>
   );
 }

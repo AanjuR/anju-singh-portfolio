@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { skillCategories, type SkillCategory } from "@/lib/data";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/ui/Reveal";
@@ -21,7 +21,7 @@ function RadialMeter({ level, accent }: { level: number; accent: string }) {
           stroke="rgba(255,255,255,0.08)"
           strokeWidth="4"
         />
-        <motion.circle
+        <m.circle
           cx="32"
           cy="32"
           r={radius}
@@ -47,7 +47,7 @@ function RadialMeter({ level, accent }: { level: number; accent: string }) {
 function SkillCard({ cat, index }: { cat: SkillCategory; index: number }) {
   return (
     <Reveal delay={index * 0.06}>
-      <motion.div
+      <m.div
         data-cursor="hover"
         whileHover={{ y: -6 }}
         transition={{ type: "spring", stiffness: 250, damping: 20 }}
@@ -66,7 +66,7 @@ function SkillCard({ cat, index }: { cat: SkillCategory; index: number }) {
         </div>
         <div className="relative mt-5 flex flex-wrap gap-2">
           {cat.skills.map((s) => (
-            <motion.span
+            <m.span
               key={s}
               whileHover={{ scale: 1.06 }}
               className="rounded-full border px-3 py-1 text-xs text-white/70"
@@ -76,10 +76,10 @@ function SkillCard({ cat, index }: { cat: SkillCategory; index: number }) {
               }}
             >
               {s}
-            </motion.span>
+            </m.span>
           ))}
         </div>
-      </motion.div>
+      </m.div>
     </Reveal>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
+import { m, type Variants } from "framer-motion";
 import type { ReactNode } from "react";
 
 type Props = {
@@ -32,7 +32,7 @@ export default function Reveal({
   once = true,
 }: Props) {
   return (
-    <motion.div
+    <m.div
       className={className}
       variants={variants}
       custom={delay}
@@ -41,6 +41,6 @@ export default function Reveal({
       viewport={{ once, margin: "-80px" }}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }

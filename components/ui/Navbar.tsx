@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 
 const links = [
   { href: "#work", label: "Work" },
@@ -21,7 +21,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <motion.header
+    <m.header
       initial={{ y: -40, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
@@ -41,7 +41,7 @@ export default function Navbar() {
         </a>
         <AnimatePresence>
           {scrolled && (
-            <motion.div
+            <m.div
               initial={{ width: 0, opacity: 0 }}
               animate={{ width: "auto", opacity: 1 }}
               exit={{ width: 0, opacity: 0 }}
@@ -57,7 +57,7 @@ export default function Navbar() {
                   {l.label}
                 </a>
               ))}
-            </motion.div>
+            </m.div>
           )}
         </AnimatePresence>
         <a
@@ -68,6 +68,6 @@ export default function Navbar() {
           Let&apos;s talk
         </a>
       </nav>
-    </motion.header>
+    </m.header>
   );
 }

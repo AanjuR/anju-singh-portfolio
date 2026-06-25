@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, type ReactNode } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { m, useMotionValue, useSpring } from "framer-motion";
 
 type Props = {
   children: ReactNode;
@@ -50,7 +50,7 @@ export default function MagneticButton({
   );
 
   return (
-    <motion.div
+    <m.div
       ref={ref}
       onMouseMove={handleMove}
       onMouseLeave={reset}
@@ -74,6 +74,6 @@ export default function MagneticButton({
           {inner}
         </button>
       )}
-    </motion.div>
+    </m.div>
   );
 }

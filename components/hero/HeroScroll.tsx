@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import Image from "next/image";
 import {
-  motion,
+  m,
   useScroll,
   useTransform,
   useSpring,
@@ -43,12 +43,12 @@ function Stage({
   const filter = useTransform(blur, (b) => `blur(${b}px)`);
 
   return (
-    <motion.div
+    <m.div
       style={{ opacity, y, filter }}
       className={`absolute inset-0 flex flex-col items-center justify-center px-6 text-center will-transform ${className}`}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -108,17 +108,17 @@ export default function HeroScroll() {
     <section ref={ref} className="relative h-[500vh]">
       <div className="sticky top-0 h-screen overflow-hidden">
         {/* Ambient evolving background */}
-        <motion.div
+        <m.div
           className="absolute inset-0"
           style={{ background: bgGradient }}
           aria-hidden
         />
 
         {/* Particle field */}
-        <Particles density={70} />
+        <Particles density={50} />
 
         {/* Animated grid (50%) */}
-        <motion.div
+        <m.div
           aria-hidden
           className="absolute inset-0 [mask-image:radial-gradient(circle_at_center,black,transparent_75%)]"
           style={{ opacity: gridOpacity, scale: gridScale }}
@@ -133,10 +133,10 @@ export default function HeroScroll() {
               transformOrigin: "center",
             }}
           />
-        </motion.div>
+        </m.div>
 
         {/* Light streaks (around 50%) */}
-        <motion.div
+        <m.div
           aria-hidden
           className="absolute inset-0"
           style={{ opacity: streakOpacity }}
@@ -153,37 +153,37 @@ export default function HeroScroll() {
               }}
             />
           ))}
-        </motion.div>
+        </m.div>
 
         {/* Geometric shapes (75%) */}
-        <motion.div
+        <m.div
           aria-hidden
           className="absolute inset-0 flex items-center justify-center"
           style={{ opacity: shapesOpacity }}
         >
-          <motion.div style={{ rotate: shapesRotate }} className="relative">
+          <m.div style={{ rotate: shapesRotate }} className="relative">
             <div className="h-[60vmin] w-[60vmin] rounded-[30%] border border-white/10" />
             <div className="absolute inset-[8%] rotate-45 rounded-[28%] border border-accent-violet/30" />
             <div className="absolute inset-[20%] rounded-full border border-accent-cyan/30" />
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
 
         {/* The glowing orb */}
-        <motion.div
+        <m.div
           aria-hidden
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 will-transform"
           style={{ scale: orbScale, opacity: orbOpacity }}
         >
-          <motion.div
+          <m.div
             className="h-[42vmin] w-[42vmin] rounded-full blur-2xl"
             style={{ background: orbBg }}
           />
           <div className="absolute inset-0 m-auto h-[20vmin] w-[20vmin] rounded-full bg-white/5 blur-xl" />
-        </motion.div>
+        </m.div>
 
 
         {/* Floating cards (around 50%) */}
-        <motion.div
+        <m.div
           aria-hidden
           className="absolute inset-0"
           style={{ opacity: gridOpacity }}
@@ -194,7 +194,7 @@ export default function HeroScroll() {
             { t: "68%", l: "18%", d: 0.6 },
             { t: "72%", l: "78%", d: 1.8 },
           ].map((c, i) => (
-            <motion.div
+            <m.div
               key={i}
               className="absolute h-24 w-40 rounded-2xl glass"
               style={{ top: c.t, left: c.l }}
@@ -208,25 +208,25 @@ export default function HeroScroll() {
             >
               <div className="m-3 h-2 w-16 rounded-full bg-white/20" />
               <div className="mx-3 h-2 w-24 rounded-full bg-white/10" />
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
 
         {/* Text stages */}
-        <motion.div
+        <m.div
           className="relative z-10 h-full"
           style={{ scale: stageScale, opacity: stageOpacity }}
         >
           {/* 0% */}
           <Stage progress={p} range={[0, 0.02, 0.16, 0.22]} entry>
             {/* Portrait above the name */}
-            <motion.div
+            <m.div
               className="relative mb-10 h-64 w-64 sm:h-80 sm:w-80 lg:h-[26rem] lg:w-[26rem]"
               initial={{ opacity: 0, scale: 0.5, y: 30 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             >
-              <motion.span
+              <m.span
                 aria-hidden
                 className="absolute -inset-[3px] rounded-full opacity-80 blur-[6px]"
                 style={{
@@ -236,7 +236,7 @@ export default function HeroScroll() {
                 animate={{ rotate: 360 }}
                 transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
               />
-              <motion.span
+              <m.span
                 aria-hidden
                 className="absolute -inset-5 rounded-full"
                 style={{
@@ -246,7 +246,7 @@ export default function HeroScroll() {
                 animate={{ scale: [1, 1.15, 1], opacity: [0.5, 0.85, 0.5] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               />
-              <motion.div
+              <m.div
                 className="relative h-full w-full overflow-hidden rounded-full border border-white/20"
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
@@ -259,33 +259,33 @@ export default function HeroScroll() {
                   sizes="416px"
                   className="object-cover"
                 />
-              </motion.div>
-            </motion.div>
+              </m.div>
+            </m.div>
 
-            <motion.p
+            <m.p
               className="section-label mb-6"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
             >
               Portfolio — 2026
-            </motion.p>
-            <motion.h1
+            </m.p>
+            <m.h1
               className="font-display text-[clamp(3rem,12vw,11rem)] font-bold leading-[0.9] tracking-tightest text-gradient"
               initial={{ opacity: 0, y: 28, filter: "blur(12px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
             >
               ANJU SINGH
-            </motion.h1>
-            <motion.p
+            </m.h1>
+            <m.p
               className="mt-6 text-base tracking-[0.35em] text-white/50 sm:text-lg"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.75, ease: [0.22, 1, 0.36, 1] }}
             >
               AI PRODUCT LEADER • BUILDER • RESEARCHER
-            </motion.p>
+            </m.p>
           </Stage>
 
           {/* 25% */}
@@ -313,15 +313,15 @@ export default function HeroScroll() {
               <span className="text-gradient">Scalable Experiences.</span>
             </h2>
           </Stage>
-        </motion.div>
+        </m.div>
 
         {/* Scroll hint */}
-        <motion.div
+        <m.div
           style={{ opacity: hintOpacity }}
           className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 text-center"
         >
           <div className="mx-auto flex h-10 w-6 items-start justify-center rounded-full border border-white/20 p-1.5">
-            <motion.div
+            <m.div
               className="h-2 w-1 rounded-full bg-white/60"
               animate={{ y: [0, 10, 0], opacity: [1, 0.3, 1] }}
               transition={{ duration: 1.8, repeat: Infinity }}
@@ -330,7 +330,7 @@ export default function HeroScroll() {
           <p className="mt-3 text-[10px] uppercase tracking-[0.3em] text-white/40">
             Scroll
           </p>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

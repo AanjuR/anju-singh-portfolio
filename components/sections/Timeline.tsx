@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { m, useScroll, useTransform } from "framer-motion";
 import { timeline } from "@/lib/data";
 import SectionHeading from "@/components/ui/SectionHeading";
 
@@ -17,7 +17,7 @@ function TimelineRow({
   return (
     <div className="relative flex md:min-h-[220px]">
       {/* Content side */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0, x: isLeft ? -50 : 50, filter: "blur(8px)" }}
         whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
         viewport={{ once: true, margin: "-100px" }}
@@ -43,11 +43,11 @@ function TimelineRow({
             {item.description}
           </p>
         </div>
-      </motion.div>
+      </m.div>
 
       {/* Node on the line */}
       <div className="absolute left-6 top-2 -translate-x-1/2 md:left-1/2">
-        <motion.span
+        <m.span
           initial={{ scale: 0 }}
           whileInView={{ scale: 1 }}
           viewport={{ once: true }}
@@ -59,7 +59,7 @@ function TimelineRow({
           }}
         >
           <span className="absolute h-8 w-8 animate-ping rounded-full opacity-20" style={{ background: item.accent }} />
-        </motion.span>
+        </m.span>
       </div>
     </div>
   );
@@ -88,7 +88,7 @@ export default function Timeline() {
         {/* Static rail */}
         <div className="absolute left-6 top-0 h-full w-px bg-white/10 md:left-1/2" />
         {/* Animated progress rail */}
-        <motion.div
+        <m.div
           className="absolute left-6 top-0 h-full w-px origin-top md:left-1/2"
           style={{
             scaleY: lineScale,
