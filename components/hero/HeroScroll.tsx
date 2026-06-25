@@ -221,7 +221,7 @@ export default function HeroScroll() {
           <Stage progress={p} range={[0, 0.02, 0.16, 0.22]} entry>
             {/* Portrait above the name */}
             <motion.div
-              className="relative mb-8 h-32 w-32 sm:h-40 sm:w-40"
+              className="relative mb-10 h-64 w-64 sm:h-80 sm:w-80 lg:h-[26rem] lg:w-[26rem]"
               initial={{ opacity: 0, scale: 0.5, y: 30 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
@@ -256,7 +256,7 @@ export default function HeroScroll() {
                   alt="Anju Singh"
                   fill
                   priority
-                  sizes="160px"
+                  sizes="416px"
                   className="object-cover"
                 />
               </motion.div>
